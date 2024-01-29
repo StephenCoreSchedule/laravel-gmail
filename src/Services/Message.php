@@ -73,7 +73,7 @@ class Message
 		$response = $this->getMessagesResponse();
 		$this->pageToken = method_exists($response, 'getNextPageToken') ? $response->getNextPageToken() : null;
 
-		$messages = $response->getMessages();
+		$messages = $response->getMessages() ?? [];
 
 		if (!$this->preload) {
 			foreach ($messages as $message) {
